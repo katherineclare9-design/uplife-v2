@@ -19,6 +19,7 @@ function showPage(page) {
 
         content = `
 
+
         <h1>💖 UpLift</h1>
 
         <h2>🏠 Home</h2>
@@ -31,7 +32,7 @@ function showPage(page) {
 
             <p>
 
-                ${userData.xp} XP
+            ${userData.xp} XP
 
             </p>
 
@@ -45,7 +46,7 @@ function showPage(page) {
 
             <p>
 
-                ${userData.streak} Days
+            ${userData.streak} Days
 
             </p>
 
@@ -59,7 +60,7 @@ function showPage(page) {
 
             <p>
 
-                ${userData.workoutsCompleted}
+            ${userData.workoutsCompleted}
 
             </p>
 
@@ -73,17 +74,18 @@ function showPage(page) {
 
             <p>
 
-                ${userData.checklistCompleted}/4 Tasks Complete
+            ${userData.checklistCompleted}/4 Tasks Complete
 
             </p>
 
         </div>
 
 
+
         `;
 
-    }
 
+    }
 
 
 
@@ -93,58 +95,99 @@ function showPage(page) {
     if (page === "training") {
 
 
+        const days = [
+
+            "Sunday",
+
+            "Monday",
+
+            "Tuesday",
+
+            "Wednesday",
+
+            "Thursday",
+
+            "Friday",
+
+            "Saturday"
+
+        ];
+
+
+
+        const today = days[new Date().getDay()];
+
+
+        const workout = dailyWorkouts[today];
+
+
+
         content = `
+
 
 
         <h1>💪 Training</h1>
 
 
-
-        <div class="card">
-
-            <h3>🏋️ Strength</h3>
-
-            <p>
-
-            Upper Body • Lower Body • Core
-
-            </p>
-
-        </div>
+        <h2>Today's Workout: ${today}</h2>
 
 
 
 
         <div class="card">
 
-            <h3>📣 Cheer</h3>
 
-            <p>
+            <h3>🌅 Morning</h3>
 
-            Backspot • Stunts • Jumps
 
-            </p>
+            ${workout.morning.map(workoutItem => `
+
+
+                <p>
+
+                ☐ ${workoutItem}
+
+                </p>
+
+
+            `).join("")}
+
+
 
         </div>
+
 
 
 
 
         <div class="card">
 
-            <h3>🤸 Flexibility</h3>
 
-            <p>
+            <h3>🌙 Nighttime</h3>
 
-            Splits • Pike • Straddle
 
-            </p>
+
+            ${workout.nighttime.map(workoutItem => `
+
+
+                <p>
+
+                ☐ ${workoutItem}
+
+                </p>
+
+
+            `).join("")}
+
+
 
         </div>
+
 
 
 
         `;
+
 
     }
 
@@ -163,29 +206,16 @@ function showPage(page) {
         <h1>✅ Daily Checklist</h1>
 
 
-
         <div class="card">
 
 
-            <p>
-            ☐ Complete Workout
-            </p>
+            <p>☐ Complete Workout</p>
 
+            <p>☐ Drink Water</p>
 
-            <p>
-            ☐ Drink Water
-            </p>
+            <p>☐ Nutrition Goal</p>
 
-
-            <p>
-            ☐ Nutrition Goal
-            </p>
-
-
-            <p>
-            ☐ Mindset Check
-            </p>
-
+            <p>☐ Mindset Check</p>
 
 
         </div>
@@ -193,6 +223,7 @@ function showPage(page) {
 
 
         `;
+
 
     }
 
@@ -213,9 +244,13 @@ function showPage(page) {
 
         <div class="card">
 
+
             <p>
+
             Locked badges will appear here.
+
             </p>
+
 
         </div>
 
@@ -243,9 +278,13 @@ function showPage(page) {
 
         <div class="card">
 
+
             <p>
+
             Weekly Well Check every Monday.
+
             </p>
+
 
         </div>
 
@@ -271,27 +310,34 @@ function showPage(page) {
         <h1>👤 Profile</h1>
 
 
-
         <div class="card">
 
 
             <p>
+
             ⭐ Level: ${userData.level}
+
             </p>
 
 
             <p>
+
             XP: ${userData.xp}
+
             </p>
 
 
             <p>
+
             🔥 Streak: ${userData.streak}
+
             </p>
 
 
             <p>
-            💪 Workouts: ${userData.workoutsCompleted}
+
+            💪 Workouts Completed: ${userData.workoutsCompleted}
+
             </p>
 
 
@@ -317,7 +363,6 @@ function showPage(page) {
 
 
         <h1>⚙️ Settings</h1>
-
 
 
         <div class="card">
@@ -355,55 +400,61 @@ function showPage(page) {
 
         <button onclick="showPage('home')">
 
-            🏠<br>Home
+        🏠<br>Home
 
         </button>
+
 
 
 
         <button onclick="showPage('training')">
 
-            💪<br>Training
+        💪<br>Training
 
         </button>
+
 
 
 
         <button onclick="showPage('checklist')">
 
-            ✅<br>Checklist
+        ✅<br>Checklist
 
         </button>
+
 
 
 
         <button onclick="showPage('badges')">
 
-            🏅<br>Badges
+        🏅<br>Badges
 
         </button>
+
 
 
 
         <button onclick="showPage('diary')">
 
-            📖<br>Diary
+        📖<br>Diary
 
         </button>
+
 
 
 
         <button onclick="showPage('profile')">
 
-            👤<br>Profile
+        👤<br>Profile
 
         </button>
 
 
 
+
         <button onclick="showPage('settings')">
 
-            ⚙️<br>Settings
+        ⚙️<br>Settings
 
         </button>
 
