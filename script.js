@@ -1,48 +1,42 @@
-// UpLift App
+// UpLift Prototype 1
 
 const app = document.getElementById("app");
 
 
-// Shows different app pages
-
 function showPage(page) {
+
+
+    let content = "";
 
 
     if (page === "home") {
 
+        content = `
 
-        app.innerHTML = `
+        <h1>💖 UpLift</h1>
 
-            <h1>💖 UpLift</h1>
-
-            <h2>Home</h2>
-
-            <p>
-                Lift Yourself Higher Every Day
-            </p>
+        <h2>🏠 Home</h2>
 
 
-            <nav>
+        <div class="card">
 
-                <button onclick="showPage('home')">
-                    🏠 Home
-                </button>
+            <h3>⭐ Level 1</h3>
 
+            <p>0 XP</p>
 
-                <button onclick="showPage('training')">
-                    💪 Training
-                </button>
+        </div>
 
 
-                <button onclick="showPage('settings')">
-                    ⚙️ Settings
-                </button>
+        <div class="card">
 
+            <h3>🔥 Daily Streak</h3>
 
-            </nav>
+            <p>0 Days</p>
+
+        </div>
+
 
         `;
-
 
     }
 
@@ -50,37 +44,114 @@ function showPage(page) {
 
     if (page === "training") {
 
+        content = `
 
-        app.innerHTML = `
-
-            <h1>💪 Training</h1>
-
-            <p>
-                Your workouts will appear here.
-            </p>
+        <h1>💪 Training</h1>
 
 
-            <nav>
+        <div class="card">
 
-                <button onclick="showPage('home')">
-                    🏠 Home
-                </button>
+            <h3>🏋️ Strength</h3>
 
+            <p>Strength workouts</p>
 
-                <button onclick="showPage('training')">
-                    💪 Training
-                </button>
+        </div>
 
 
-                <button onclick="showPage('settings')">
-                    ⚙️ Settings
-                </button>
+        <div class="card">
+
+            <h3>📣 Cheer</h3>
+
+            <p>Cheer workouts</p>
+
+        </div>
 
 
-            </nav>
+        <div class="card">
+
+            <h3>🤸 Flexibility</h3>
+
+            <p>Flexibility workouts</p>
+
+        </div>
 
         `;
 
+    }
+
+
+
+    if (page === "checklist") {
+
+        content = `
+
+        <h1>✅ Checklist</h1>
+
+        <div class="card">
+
+            <p>☐ Workout</p>
+
+            <p>☐ Water Goal</p>
+
+            <p>☐ Nutrition Goal</p>
+
+        </div>
+
+        `;
+
+    }
+
+
+
+    if (page === "badges") {
+
+        content = `
+
+        <h1>🏅 Badges</h1>
+
+        <div class="card">
+
+        <p>Badge collection coming soon</p>
+
+        </div>
+
+        `;
+
+    }
+
+
+
+    if (page === "diary") {
+
+        content = `
+
+        <h1>📖 Diary</h1>
+
+        <div class="card">
+
+        <p>Weekly well check coming soon</p>
+
+        </div>
+
+        `;
+
+    }
+
+
+
+    if (page === "profile") {
+
+        content = `
+
+        <h1>👤 Profile</h1>
+
+        <div class="card">
+
+        <p>Your stats will appear here</p>
+
+        </div>
+
+        `;
 
     }
 
@@ -88,44 +159,75 @@ function showPage(page) {
 
     if (page === "settings") {
 
+        content = `
 
-        app.innerHTML = `
+        <h1>⚙️ Settings</h1>
 
-            <h1>⚙️ Settings</h1>
+        <div class="card">
 
-            <p>
-                Your settings will appear here.
-            </p>
+        <p>💖 Regular Mode</p>
 
+        <p>🤍 Vacation Mode</p>
 
-            <nav>
+        <p>❤️ Period Mode</p>
 
-                <button onclick="showPage('home')">
-                    🏠 Home
-                </button>
+        <p>🥗 ARFID Mode</p>
 
-
-                <button onclick="showPage('training')">
-                    💪 Training
-                </button>
-
-
-                <button onclick="showPage('settings')">
-                    ⚙️ Settings
-                </button>
-
-
-            </nav>
+        </div>
 
         `;
-
 
     }
 
 
+
+    app.innerHTML = content + `
+
+
+    <div class="bottom-nav">
+
+
+        <button onclick="showPage('home')">
+        🏠<br>Home
+        </button>
+
+
+        <button onclick="showPage('training')">
+        💪<br>Training
+        </button>
+
+
+        <button onclick="showPage('checklist')">
+        ✅<br>Checklist
+        </button>
+
+
+        <button onclick="showPage('badges')">
+        🏅<br>Badges
+        </button>
+
+
+        <button onclick="showPage('diary')">
+        📖<br>Diary
+        </button>
+
+
+        <button onclick="showPage('profile')">
+        👤<br>Profile
+        </button>
+
+
+        <button onclick="showPage('settings')">
+        ⚙️<br>Settings
+        </button>
+
+
+    </div>
+
+    `;
+
 }
 
 
-// Start app
 
 showPage("home");
