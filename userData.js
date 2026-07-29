@@ -10,6 +10,9 @@ let userData = {
     level: 1,
 
 
+    xpToNextLevel: 500,
+
+
     streak: 0,
 
 
@@ -52,12 +55,13 @@ function saveUserData() {
 
 
 
-// Load saved progress
+// Load user progress
 
 function loadUserData() {
 
 
     const savedData = localStorage.getItem("upliftData");
+
 
 
     if (savedData) {
@@ -67,6 +71,47 @@ function loadUserData() {
 
 
     }
+
+
+}
+
+
+
+
+// Add XP and check levels
+
+function addXP(amount) {
+
+
+    userData.xp += amount;
+
+
+
+    while (userData.xp >= userData.xpToNextLevel) {
+
+
+        userData.xp -= userData.xpToNextLevel;
+
+
+        userData.level += 1;
+
+
+        userData.xpToNextLevel = Math.floor(
+            userData.xpToNextLevel * 1.25
+        );
+
+
+        alert(
+            "🎉 Level Up! You reached Level " 
+            + userData.level
+        );
+
+
+    }
+
+
+
+    saveUserData();
 
 
 }
