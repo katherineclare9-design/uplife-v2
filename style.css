@@ -1,0 +1,48 @@
+/* UpLift Main Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+
+body {
+
+    margin: 0;
+
+    font-family: "Quicksand", sans-serif;
+
+    background: #ffd6e7;
+
+    color: #111;
+
+    text-align: center;
+
+}
+
+
+
+#app {
+
+    padding: 30px;
+
+}
+
+
+
+h1 {
+
+    color: #ff4fa3;
+
+    font-size: 50px;
+
+    font-weight: 700;
+
+}
+
+
+
+p {
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+}
