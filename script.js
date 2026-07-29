@@ -1,6 +1,8 @@
 // UpLift Prototype 1
 
+
 const app = document.getElementById("app");
+
 
 
 function showPage(page) {
@@ -9,7 +11,11 @@ function showPage(page) {
     let content = "";
 
 
+
+    // HOME
+
     if (page === "home") {
+
 
         content = `
 
@@ -18,20 +24,58 @@ function showPage(page) {
         <h2>🏠 Home</h2>
 
 
+
         <div class="card">
 
-            <h3>⭐ Level 1</h3>
+            <h3>⭐ Level ${userData.level}</h3>
 
-            <p>0 XP</p>
+            <p>
+
+                ${userData.xp} XP
+
+            </p>
 
         </div>
+
 
 
         <div class="card">
 
             <h3>🔥 Daily Streak</h3>
 
-            <p>0 Days</p>
+            <p>
+
+                ${userData.streak} Days
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>💪 Workouts Completed</h3>
+
+            <p>
+
+                ${userData.workoutsCompleted}
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>☑️ Daily Progress</h3>
+
+            <p>
+
+                ${userData.checklistCompleted}/4 Tasks Complete
+
+            </p>
 
         </div>
 
@@ -42,191 +86,338 @@ function showPage(page) {
 
 
 
+
+
+    // TRAINING
+
     if (page === "training") {
+
 
         content = `
 
+
         <h1>💪 Training</h1>
+
 
 
         <div class="card">
 
             <h3>🏋️ Strength</h3>
 
-            <p>Strength workouts</p>
+            <p>
+
+            Upper Body • Lower Body • Core
+
+            </p>
 
         </div>
+
+
 
 
         <div class="card">
 
             <h3>📣 Cheer</h3>
 
-            <p>Cheer workouts</p>
+            <p>
+
+            Backspot • Stunts • Jumps
+
+            </p>
 
         </div>
+
+
 
 
         <div class="card">
 
             <h3>🤸 Flexibility</h3>
 
-            <p>Flexibility workouts</p>
+            <p>
+
+            Splits • Pike • Straddle
+
+            </p>
 
         </div>
+
+
 
         `;
 
     }
 
 
+
+
+
+    // CHECKLIST
 
     if (page === "checklist") {
 
+
         content = `
 
-        <h1>✅ Checklist</h1>
+
+        <h1>✅ Daily Checklist</h1>
+
+
 
         <div class="card">
 
-            <p>☐ Workout</p>
 
-            <p>☐ Water Goal</p>
+            <p>
+            ☐ Complete Workout
+            </p>
 
-            <p>☐ Nutrition Goal</p>
+
+            <p>
+            ☐ Drink Water
+            </p>
+
+
+            <p>
+            ☐ Nutrition Goal
+            </p>
+
+
+            <p>
+            ☐ Mindset Check
+            </p>
+
+
 
         </div>
+
+
 
         `;
 
     }
 
 
+
+
+
+    // BADGES
 
     if (page === "badges") {
 
+
         content = `
 
-        <h1>🏅 Badges</h1>
+
+        <h1>🏅 Badge Gallery</h1>
+
 
         <div class="card">
 
-        <p>Badge collection coming soon</p>
+            <p>
+            Locked badges will appear here.
+            </p>
 
         </div>
 
+
+
         `;
+
 
     }
 
 
+
+
+
+    // DIARY
 
     if (page === "diary") {
 
+
         content = `
+
 
         <h1>📖 Diary</h1>
 
+
         <div class="card">
 
-        <p>Weekly well check coming soon</p>
+            <p>
+            Weekly Well Check every Monday.
+            </p>
 
         </div>
 
+
+
         `;
+
 
     }
 
 
+
+
+
+    // PROFILE
 
     if (page === "profile") {
 
+
         content = `
+
 
         <h1>👤 Profile</h1>
 
+
+
         <div class="card">
 
-        <p>Your stats will appear here</p>
+
+            <p>
+            ⭐ Level: ${userData.level}
+            </p>
+
+
+            <p>
+            XP: ${userData.xp}
+            </p>
+
+
+            <p>
+            🔥 Streak: ${userData.streak}
+            </p>
+
+
+            <p>
+            💪 Workouts: ${userData.workoutsCompleted}
+            </p>
+
 
         </div>
 
+
+
         `;
+
 
     }
 
 
+
+
+
+    // SETTINGS
 
     if (page === "settings") {
 
+
         content = `
+
 
         <h1>⚙️ Settings</h1>
 
+
+
         <div class="card">
 
-        <p>💖 Regular Mode</p>
 
-        <p>🤍 Vacation Mode</p>
+            <p>💖 Regular Mode</p>
 
-        <p>❤️ Period Mode</p>
+            <p>🤍 Vacation Mode</p>
 
-        <p>🥗 ARFID Mode</p>
+            <p>❤️ Period Mode</p>
+
+            <p>🥗 ARFID Mode</p>
+
 
         </div>
 
+
+
         `;
 
+
     }
+
+
 
 
 
     app.innerHTML = content + `
 
 
+
     <div class="bottom-nav">
 
 
+
         <button onclick="showPage('home')">
-        🏠<br>Home
+
+            🏠<br>Home
+
         </button>
+
 
 
         <button onclick="showPage('training')">
-        💪<br>Training
+
+            💪<br>Training
+
         </button>
+
 
 
         <button onclick="showPage('checklist')">
-        ✅<br>Checklist
+
+            ✅<br>Checklist
+
         </button>
+
 
 
         <button onclick="showPage('badges')">
-        🏅<br>Badges
+
+            🏅<br>Badges
+
         </button>
+
 
 
         <button onclick="showPage('diary')">
-        📖<br>Diary
+
+            📖<br>Diary
+
         </button>
+
 
 
         <button onclick="showPage('profile')">
-        👤<br>Profile
+
+            👤<br>Profile
+
         </button>
+
 
 
         <button onclick="showPage('settings')">
-        ⚙️<br>Settings
+
+            ⚙️<br>Settings
+
         </button>
+
 
 
     </div>
 
+
+
     `;
 
+
 }
+
 
 
 
