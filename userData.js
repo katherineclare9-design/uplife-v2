@@ -74,31 +74,4 @@ function loadUserData() {
 
 
 
-// Reset all progress
-
-function resetProgress() {
-
-
-    const confirmReset = confirm(
-        "Are you sure you want to reset all UpLift progress?"
-    );
-
-
-    if (confirmReset) {
-
-
-        localStorage.removeItem("upliftData");
-
-
-        location.reload();
-
-
-    }
-
-
-}
-
-
-
-
 loadUserData();
