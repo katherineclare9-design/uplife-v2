@@ -30,11 +30,7 @@ function showPage(page) {
 
             <h3>⭐ Level ${userData.level}</h3>
 
-            <p>
-
-            ${userData.xp} XP
-
-            </p>
+            <p>${userData.xp} XP</p>
 
         </div>
 
@@ -44,11 +40,7 @@ function showPage(page) {
 
             <h3>🔥 Daily Streak</h3>
 
-            <p>
-
-            ${userData.streak} Days
-
-            </p>
+            <p>${userData.streak} Days</p>
 
         </div>
 
@@ -58,11 +50,7 @@ function showPage(page) {
 
             <h3>💪 Workouts Completed</h3>
 
-            <p>
-
-            ${userData.workoutsCompleted}
-
-            </p>
+            <p>${userData.workoutsCompleted}</p>
 
         </div>
 
@@ -72,11 +60,7 @@ function showPage(page) {
 
             <h3>☑️ Daily Progress</h3>
 
-            <p>
-
-            ${userData.checklistCompleted}/4 Tasks Complete
-
-            </p>
+            <p>${userData.checklistCompleted}/4 Tasks Complete</p>
 
         </div>
 
@@ -84,8 +68,8 @@ function showPage(page) {
 
         `;
 
-
     }
+
 
 
 
@@ -123,7 +107,6 @@ function showPage(page) {
 
 
         content = `
-
 
 
         <h1>💪 Training</h1>
@@ -166,7 +149,6 @@ function showPage(page) {
             <h3>🌙 Nighttime</h3>
 
 
-
             ${workout.nighttime.map(workoutItem => `
 
 
@@ -182,7 +164,6 @@ function showPage(page) {
 
 
         </div>
-
 
 
 
@@ -223,7 +204,6 @@ function showPage(page) {
 
 
         `;
-
 
     }
 
@@ -310,34 +290,27 @@ function showPage(page) {
         <h1>👤 Profile</h1>
 
 
+
         <div class="card">
 
 
             <p>
-
             ⭐ Level: ${userData.level}
-
             </p>
 
 
             <p>
-
             XP: ${userData.xp}
-
             </p>
 
 
             <p>
-
             🔥 Streak: ${userData.streak}
-
             </p>
 
 
             <p>
-
             💪 Workouts Completed: ${userData.workoutsCompleted}
-
             </p>
 
 
@@ -365,6 +338,7 @@ function showPage(page) {
         <h1>⚙️ Settings</h1>
 
 
+
         <div class="card">
 
 
@@ -375,6 +349,24 @@ function showPage(page) {
             <p>❤️ Period Mode</p>
 
             <p>🥗 ARFID Mode</p>
+
+
+        </div>
+
+
+
+
+        <div class="card">
+
+
+            <h3>⚠️ Progress</h3>
+
+
+            <button onclick="resetProgress()">
+
+                Reset Progress
+
+            </button>
 
 
         </div>
@@ -406,13 +398,11 @@ function showPage(page) {
 
 
 
-
         <button onclick="showPage('training')">
 
         💪<br>Training
 
         </button>
-
 
 
 
@@ -424,13 +414,11 @@ function showPage(page) {
 
 
 
-
         <button onclick="showPage('badges')">
 
         🏅<br>Badges
 
         </button>
-
 
 
 
@@ -442,13 +430,11 @@ function showPage(page) {
 
 
 
-
         <button onclick="showPage('profile')">
 
         👤<br>Profile
 
         </button>
-
 
 
 
@@ -468,6 +454,7 @@ function showPage(page) {
 
 
 }
+
 
 
 
