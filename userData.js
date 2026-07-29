@@ -19,6 +19,12 @@ let userData = {
     checklistCompleted: 0,
 
 
+    completedWorkouts: [],
+
+
+    unlockedBadges: [],
+
+
     lastWorkoutDate: null
 
 
@@ -46,7 +52,6 @@ function saveUserData() {
 
 
 
-
 // Load saved progress
 
 function loadUserData() {
@@ -55,11 +60,37 @@ function loadUserData() {
     const savedData = localStorage.getItem("upliftData");
 
 
-
     if (savedData) {
 
 
         userData = JSON.parse(savedData);
+
+
+    }
+
+
+}
+
+
+
+
+// Reset all progress
+
+function resetProgress() {
+
+
+    const confirmReset = confirm(
+        "Are you sure you want to reset all UpLift progress?"
+    );
+
+
+    if (confirmReset) {
+
+
+        localStorage.removeItem("upliftData");
+
+
+        location.reload();
 
 
     }
