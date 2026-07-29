@@ -17,13 +17,10 @@ function completeWorkout(workoutName) {
         userData.completedWorkouts.push(workoutName);
 
 
-
         addXP(50);
 
 
-
         userData.workoutsCompleted += 1;
-
 
 
         saveUserData();
@@ -66,11 +63,7 @@ function showPage(page) {
 
             <h3>⭐ Level ${userData.level}</h3>
 
-            <p>
-
-            ${userData.xp}/${userData.xpToNextLevel} XP
-
-            </p>
+            <p>${userData.xp}/${userData.xpToNextLevel} XP</p>
 
         </div>
 
@@ -80,11 +73,7 @@ function showPage(page) {
 
             <h3>🔥 Daily Streak</h3>
 
-            <p>
-
-            ${userData.streak} Days
-
-            </p>
+            <p>${userData.streak} Days</p>
 
         </div>
 
@@ -94,11 +83,7 @@ function showPage(page) {
 
             <h3>💪 Workouts Completed</h3>
 
-            <p>
-
-            ${userData.workoutsCompleted}
-
-            </p>
+            <p>${userData.workoutsCompleted}</p>
 
         </div>
 
@@ -155,32 +140,26 @@ function showPage(page) {
 
 
 
-
         <div class="card">
 
 
             <h3>🌅 Morning</h3>
 
 
-
             ${workout.morning.map(item => `
 
 
-                <p>
-
+            <p>
 
                 <button onclick="completeWorkout('${item}')">
-
 
                 ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
 
                 ${item}
 
-
                 </button>
 
-
-                </p>
+            </p>
 
 
             `).join("")}
@@ -199,25 +178,20 @@ function showPage(page) {
             <h3>🌙 Nighttime</h3>
 
 
-
             ${workout.nighttime.map(item => `
 
 
-                <p>
-
+            <p>
 
                 <button onclick="completeWorkout('${item}')">
-
 
                 ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
 
                 ${item}
 
-
                 </button>
 
-
-                </p>
+            </p>
 
 
             `).join("")}
@@ -355,32 +329,13 @@ function showPage(page) {
         <div class="card">
 
 
-            <p>
+            <p>⭐ Level: ${userData.level}</p>
 
-            ⭐ Level: ${userData.level}
+            <p>XP: ${userData.xp}/${userData.xpToNextLevel}</p>
 
-            </p>
+            <p>🔥 Streak: ${userData.streak}</p>
 
-
-            <p>
-
-            XP: ${userData.xp}/${userData.xpToNextLevel}
-
-            </p>
-
-
-            <p>
-
-            🔥 Streak: ${userData.streak}
-
-            </p>
-
-
-            <p>
-
-            💪 Workouts: ${userData.workoutsCompleted}
-
-            </p>
+            <p>💪 Workouts: ${userData.workoutsCompleted}</p>
 
 
         </div>
@@ -418,6 +373,24 @@ function showPage(page) {
             <p>❤️ Period Mode</p>
 
             <p>🥗 ARFID Mode</p>
+
+
+        </div>
+
+
+
+
+        <div class="card">
+
+
+            <h3>⚠️ Progress Settings</h3>
+
+
+            <button onclick="resetProgress()">
+
+                Reset Progress
+
+            </button>
 
 
         </div>
