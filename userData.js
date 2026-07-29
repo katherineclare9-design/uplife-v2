@@ -1,50 +1,72 @@
 // UpLift User Data System
 
+
 let userData = {
+
 
     xp: 0,
 
+
     level: 1,
+
 
     streak: 0,
 
+
     workoutsCompleted: 0,
+
 
     checklistCompleted: 0,
 
+
     lastWorkoutDate: null
+
 
 };
 
 
 
-// Save progress
+
+// Save user progress
 
 function saveUserData() {
 
+
     localStorage.setItem(
+
         "upliftData",
+
         JSON.stringify(userData)
+
     );
+
 
 }
 
 
 
-// Load progress
+
+
+// Load saved progress
 
 function loadUserData() {
+
 
     const savedData = localStorage.getItem("upliftData");
 
 
+
     if (savedData) {
+
 
         userData = JSON.parse(savedData);
 
+
     }
 
+
 }
+
 
 
 
