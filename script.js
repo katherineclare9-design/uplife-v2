@@ -5,6 +5,9 @@ const app = document.getElementById("app");
 
 
 
+
+// Complete workout
+
 function completeWorkout(workoutName) {
 
 
@@ -14,10 +17,13 @@ function completeWorkout(workoutName) {
         userData.completedWorkouts.push(workoutName);
 
 
-        userData.xp += 50;
+
+        addXP(50);
+
 
 
         userData.workoutsCompleted += 1;
+
 
 
         saveUserData();
@@ -60,7 +66,11 @@ function showPage(page) {
 
             <h3>⭐ Level ${userData.level}</h3>
 
-            <p>${userData.xp} XP</p>
+            <p>
+
+            ${userData.xp}/${userData.xpToNextLevel} XP
+
+            </p>
 
         </div>
 
@@ -70,7 +80,11 @@ function showPage(page) {
 
             <h3>🔥 Daily Streak</h3>
 
-            <p>${userData.streak} Days</p>
+            <p>
+
+            ${userData.streak} Days
+
+            </p>
 
         </div>
 
@@ -80,13 +94,18 @@ function showPage(page) {
 
             <h3>💪 Workouts Completed</h3>
 
-            <p>${userData.workoutsCompleted}</p>
+            <p>
+
+            ${userData.workoutsCompleted}
+
+            </p>
 
         </div>
 
 
 
         `;
+
 
     }
 
@@ -140,26 +159,32 @@ function showPage(page) {
         <div class="card">
 
 
-        <h3>🌅 Morning</h3>
+            <h3>🌅 Morning</h3>
 
 
-        ${workout.morning.map(item => `
+
+            ${workout.morning.map(item => `
 
 
-            <p>
-
-            <button onclick="completeWorkout('${item}')">
-
-            ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
-
-            ${item}
-
-            </button>
-
-            </p>
+                <p>
 
 
-        `).join("")}
+                <button onclick="completeWorkout('${item}')">
+
+
+                ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
+
+                ${item}
+
+
+                </button>
+
+
+                </p>
+
+
+            `).join("")}
+
 
 
         </div>
@@ -171,26 +196,136 @@ function showPage(page) {
         <div class="card">
 
 
-        <h3>🌙 Nighttime</h3>
+            <h3>🌙 Nighttime</h3>
 
 
-        ${workout.nighttime.map(item => `
+
+            ${workout.nighttime.map(item => `
+
+
+                <p>
+
+
+                <button onclick="completeWorkout('${item}')">
+
+
+                ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
+
+                ${item}
+
+
+                </button>
+
+
+                </p>
+
+
+            `).join("")}
+
+
+
+        </div>
+
+
+
+        `;
+
+
+    }
+
+
+
+
+
+    // CHECKLIST
+
+    if (page === "checklist") {
+
+
+        content = `
+
+
+        <h1>✅ Daily Checklist</h1>
+
+
+        <div class="card">
+
+
+            <p>☐ Complete Workout</p>
+
+            <p>☐ Drink Water</p>
+
+            <p>☐ Nutrition Goal</p>
+
+            <p>☐ Mindset Check</p>
+
+
+        </div>
+
+
+
+        `;
+
+
+    }
+
+
+
+
+
+    // BADGES
+
+    if (page === "badges") {
+
+
+        content = `
+
+
+        <h1>🏅 Badge Gallery</h1>
+
+
+        <div class="card">
 
 
             <p>
 
-            <button onclick="completeWorkout('${item}')">
-
-            ${userData.completedWorkouts.includes(item) ? "✅" : "☐"}
-
-            ${item}
-
-            </button>
+            Badges coming soon.
 
             </p>
 
 
-        `).join("")}
+        </div>
+
+
+
+        `;
+
+
+    }
+
+
+
+
+
+    // DIARY
+
+    if (page === "diary") {
+
+
+        content = `
+
+
+        <h1>📖 Diary</h1>
+
+
+        <div class="card">
+
+
+            <p>
+
+            Weekly Well Check coming soon.
+
+            </p>
 
 
         </div>
@@ -220,16 +355,36 @@ function showPage(page) {
         <div class="card">
 
 
-        <p>⭐ Level: ${userData.level}</p>
+            <p>
 
-        <p>XP: ${userData.xp}</p>
+            ⭐ Level: ${userData.level}
 
-        <p>🔥 Streak: ${userData.streak}</p>
+            </p>
 
-        <p>💪 Workouts: ${userData.workoutsCompleted}</p>
+
+            <p>
+
+            XP: ${userData.xp}/${userData.xpToNextLevel}
+
+            </p>
+
+
+            <p>
+
+            🔥 Streak: ${userData.streak}
+
+            </p>
+
+
+            <p>
+
+            💪 Workouts: ${userData.workoutsCompleted}
+
+            </p>
 
 
         </div>
+
 
 
         `;
@@ -252,19 +407,21 @@ function showPage(page) {
         <h1>⚙️ Settings</h1>
 
 
+
         <div class="card">
 
 
-        <p>💖 Regular Mode</p>
+            <p>💖 Regular Mode</p>
 
-        <p>🤍 Vacation Mode</p>
+            <p>🤍 Vacation Mode</p>
 
-        <p>❤️ Period Mode</p>
+            <p>❤️ Period Mode</p>
 
-        <p>🥗 ARFID Mode</p>
+            <p>🥗 ARFID Mode</p>
 
 
         </div>
+
 
 
         `;
@@ -284,22 +441,57 @@ function showPage(page) {
 
 
         <button onclick="showPage('home')">
+
         🏠<br>Home
+
         </button>
+
 
 
         <button onclick="showPage('training')">
+
         💪<br>Training
+
         </button>
+
+
+
+        <button onclick="showPage('checklist')">
+
+        ✅<br>Checklist
+
+        </button>
+
+
+
+        <button onclick="showPage('badges')">
+
+        🏅<br>Badges
+
+        </button>
+
+
+
+        <button onclick="showPage('diary')">
+
+        📖<br>Diary
+
+        </button>
+
 
 
         <button onclick="showPage('profile')">
+
         👤<br>Profile
+
         </button>
 
 
+
         <button onclick="showPage('settings')">
+
         ⚙️<br>Settings
+
         </button>
 
 
@@ -311,6 +503,7 @@ function showPage(page) {
 
 
 }
+
 
 
 
