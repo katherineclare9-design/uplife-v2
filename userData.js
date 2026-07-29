@@ -6,27 +6,19 @@ let userData = {
 
     xp: 0,
 
-
     level: 1,
-
 
     xpToNextLevel: 500,
 
-
     streak: 0,
-
 
     workoutsCompleted: 0,
 
-
     checklistCompleted: 0,
-
 
     completedWorkouts: [],
 
-
     unlockedBadges: [],
-
 
     lastWorkoutDate: null
 
@@ -63,7 +55,6 @@ function loadUserData() {
     const savedData = localStorage.getItem("upliftData");
 
 
-
     if (savedData) {
 
 
@@ -78,7 +69,7 @@ function loadUserData() {
 
 
 
-// Add XP and check levels
+// Add XP
 
 function addXP(amount) {
 
@@ -97,13 +88,16 @@ function addXP(amount) {
 
 
         userData.xpToNextLevel = Math.floor(
+
             userData.xpToNextLevel * 1.25
+
         );
 
 
         alert(
-            "🎉 Level Up! You reached Level " 
-            + userData.level
+
+            "🎉 Level Up! You reached Level " + userData.level
+
         );
 
 
@@ -112,6 +106,35 @@ function addXP(amount) {
 
 
     saveUserData();
+
+
+}
+
+
+
+
+// Reset Progress
+
+function resetProgress() {
+
+
+    const confirmReset = confirm(
+
+        "Resetting your progress will erase any and all completed workouts or recent badge history"
+
+    );
+
+
+    if (confirmReset) {
+
+
+        localStorage.removeItem("upliftData");
+
+
+        location.reload();
+
+
+    }
 
 
 }
